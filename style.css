@@ -1,113 +1,371 @@
-/* ブラウザで設定されているスタイルのリセット・共通設定 */
-/* 消さないでください */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-body,
-.dashboard-container{
-  display: flex;
-  height: 100vh;
-}
-.sidebar {
-  width: 256px;
-  background-color: #f5f5f5;
-  border-style: 1px solid #e0e0e0;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  flex-shrink: 0;
-}
-.sidebar-header {
-  padding: 20px;
-  border-bottom: 1px solid #e0e0e0;
-}
-.sidebar-home {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #4f7cac;
-  display: flex;
-  align-items: center;
-  grid: 8px;
-  text-decoration: none;
-}
-.main-content {
-  flex-grow: 1;
-  padding: 24px;
-}
-.section-header {
-  background-color: #ffffff;
-  padding: 32px;
-  border-bottom: 1px solid #e0e0e0;
-  text-align: center;
-}
-.profile-circle {
-  width: 96px;
-  height: 96px;
-  background-color: #4f7cac;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  margin: 0 auto 24px;
-}
-.profile-circle span {
-  font-size: 2.5rem;
-  color: #ffffff;
-}
-.section-title {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color:#2f2f2f;
-  margin-bottom: 8px;
-}
-.section-subtitle {
-  font-size: 1.125rem;
-  color: #757575;
-  margin-bottom: 24px;
-}
-.section-body {
-  padding: 32px;
-}
-.section-description {
-  max-width: 672px;
-  margin: 0 auto;
-  color: #757575;
-  padding: 32px;
 
-}
-.section-description p {
-  margin-bottom: 16px;
-}
-
-h1,
-h2,
-h3,
-p,
-ul,
-li,
-form,
-input,
-textarea,
-select,
-button {
+/* =====================
+   リセット
+===================== */
+* {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  box-sizing: border-box;
 }
 
-ul {
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.7;
+  color: #333;
+}
+
+/* 共通幅 */
+.header_container,
+main,
+.footer_container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* =====================
+   ヘッダー
+===================== */
+header {
+  background: #ffffff;
+  border-bottom: 1px solid #ddd;
+  position: relative;
+  z-index: 10;
+}
+
+.header_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+}
+
+/* PCでは表示 */
+#nav {
+  display: block;
+}
+
+/* スマホだけ制御 */
+@media (max-width: 768px) {
+  #nav {
+    display: none;
+  }
+
+  #nav.active {
+    display: block;
+  }
+}
+
+/* ロゴ */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo img {
+  width: 50px;
+}
+
+.site_title h1 {
+  font-size: 18px;
+}
+
+.site_title p {
+  font-size: 12px;
+  color: #777;
+}
+
+/* =====================
+   ナビゲーション
+===================== */
+.navigation_list {
+  display: flex;
+  list-style: none;
+  gap: 24px;
+}
+
+.navigation_list a {
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.navigation_list a:hover {
+  color: #0077cc;
+}
+
+/* =====================
+   ハンバーガー
+===================== */
+.hamburger {
+  display: none;
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  z-index: 20;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  width: 26px;
+  height: 2px;
+  background: #333;
+  margin: 6px 0;
+}
+
+/* 背景 */
+.background {
+  display: none;
+}
+
+/* =====================
+   メイン
+===================== */
+main {
+  padding: 40px 20px;
+}
+
+section {
+  margin-bottom: 50px;
+}
+
+.title {
+  font-size: 22px;
+  margin-bottom: 14px;
+  border-left: 4px solid #0077cc;
+  padding-left: 10px;
+}
+
+.subtitle {
+  margin-bottom: 50px;
+}
+
+
+/* ボタン */
+.button_container {
+  margin-top: 16px;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 18px;
+  background: #0077cc;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  border-radius: 4px;
+  transition: 0.2s;
+}
+
+.button:hover {
+  background: #005fa3;
+}
+
+.image {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 6px;
+}
+
+/* =====================
+   お知らせ
+===================== */
+.list {
   list-style: none;
 }
-/* スタイルのリセット終了 */
 
-/* サイドバーとメインコンテンツを包むための要素のスタイルを書いてください */
+.list li {
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.list time {
+  font-weight: bold;
+  margin-right: 12px;
+}
+
+/* =====================
+   フッター
+===================== */
+footer {
+  background: #f5f5f5;
+  padding: 30px 20px;
+}
+
+.footer_container {
+  margin-top: 20px;
+}
+
+.footer_info h2 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.footer_info p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 4px;
+}
+
+/* =====================
+   レスポンシブ
+===================== */
+@media (max-width: 768px) {
+
+  /* ナビ */
+  .navigation {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background: #fff;
+    transition: 0.3s;
+    padding-top: 80px;
+    z-index: 15;
+  }
+
+  .navigation.active {
+    right: 0;
+  }
+
+  .navigation_list {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  /* ハンバーガー */
+  .hamburger {
+    display: block;
+  }
+
+  /* 背景 */
+  .background.active {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+  }
+}
+
+/* =====================
+   共通テキスト
+===================== */
+.lead {
+  margin-bottom: 20px;
+  font-size: 15px;
+}
+
+/* =====================
+   研究内容
+===================== */
+.research_grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.subject {
+  font-size: 18px;
+  margin-bottom: 10px;
+  border-color: #0077cc;
+  padding-left: 10px;
+}
+
+.subsection {
+  margin-bottom: 30px;
+}
+
+.card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 6px;
+}
+
+.card img {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+/* =====================
+   研究実績
+===================== */
+.paper_list {
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+.paper_title {
+  font-weight: bold;
+}
+
+.paper_meta {
+  font-size: 13px;
+  color: #666;
+}
+
+/* =====================
+   お知らせ
+===================== */
+.news_list {
+  list-style: none;
+}
+
+.news_list li {
+  margin-bottom: 10px;
+}
+
+/* =====================
+   メンバー
+===================== */
+.member_list {
+  list-style: none;
+  margin-bottom: 20px;
+}
+.member_sublist {
+  list-style: none;
+  margin-left: 15px;
+  margin-top: 5px;
+}
+
+.member_sublist li {
+  font-size: 14px;
+  color: #555;
+}
 
 
-/* サイドバーに関連するスタイルを書いてください */
+/* =====================
+   アクセス
+===================== */
+.map_container {
+  margin-bottom: 20px;
+}
 
+.map {
+  width: 100%;
+  height: 300px;
+  border: none;
+}
 
-/* メインコンテンツに関連するスタイルを書いてください */
+.info_list {
+  list-style: none;
+}
 
-
-
+/* =====================
+   レスポンシブ
+===================== */
+@media (max-width: 768px) {
+  .research_grid {
+    grid-template-columns: 1fr;
+  }
+}
